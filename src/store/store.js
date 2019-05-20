@@ -5,9 +5,15 @@ import state from './state'
 import mutations from './mutations'
 import actions from './actions'
 import getters from './getters'
+import category from './modules/category'
+import recognise from './modules/recognise'
 export default new Vuex.Store({
   state,
   mutations,
   actions,
-  getters
+  getters,
+  modules: {
+    category,
+    recognise
+  }
 })

@@ -1,6 +1,8 @@
 <template>
 	<div>
-    Personal
+    <HeaderSlot>
+    
+    </HeaderSlot>
   </div>
 </template>
 

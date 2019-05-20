@@ -2,7 +2,7 @@
 	<div id="headerContainer">
     <div class="headerTop">
       <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/indexLogo-a90bdaae6b.png" alt="网易严选">
-      <div class="search">
+      <div class="search" @click="$router.push('/search')">
         <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-553dba3aff.png" alt="放大镜">
         <span class="text">搜索商品，共22488款好物</span>
       </div>
@@ -10,7 +10,7 @@
     </div>
     <div>
       <div class="headerBottom">
-        <ul class="list clearfix" @click="handleItem(event)">
+        <ul class="list clearfix">
           <li><a href="javascript:" class="active">推荐</a></li>
           <li><a href="javascript:">居家生活</a></li>
           <li><a href="javascript:">服饰鞋包</a></li>
@@ -53,7 +53,8 @@
     name: "Header",
     data(){
       return{
-        isOpen:false
+        isOpen:false,
+        currentIndex:0
       }
     },
     mounted(){
@@ -68,11 +69,7 @@
         }
       })
     },
-    methods:{
-      handleItem(event){
-      
-      }
-    }
+ 
   }
 </script>
 

@@ -1,12 +1,18 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
 import Vue from 'vue'
+import 'lib-flexible/flexible'
 import App from './App'
 import router from './router'
 import store from './store/store'
+import './mock/mock-server'
+import VueLazyLoad from 'vue-lazyload'
+import Split from './components/Split/Split'
+import loadingGIF from "./common/images/loading.gif"
+import HeaderSlot from './components/HeaderSlot/HeaderSlot'
 Vue.config.productionTip = false
-
-/* eslint-disable no-new */
+Vue.use(VueLazyLoad, {loading: loadingGIF})
+Vue.component('Split', Split);
+Vue.component('HeaderSlot', HeaderSlot);
 new Vue({
   el: '#app',
   components: { App },

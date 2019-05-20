@@ -1,18 +1,20 @@
 <template>
   <div id="app">
+    <Header v-show="$route.meta.showHeader"></Header>
     <router-view/>
-    <Footer></Footer>
+    <Footer v-show="$route.meta.showFooter"></Footer>
   </div>
 </template>
 
 <script>
-  
   import Footer from './components/footer/Footer'
+  import Header from './components/header/Header'
 export default {
   name: 'App',
   components: {
-    Footer
-  }
+    Footer,
+    Header
+  },
 }
 </script>
 

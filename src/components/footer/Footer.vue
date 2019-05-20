@@ -42,6 +42,8 @@
     position fixed
     left 0
     bottom 0
+    z-index 2
+    background #fff
     .footerList
       display flex
       justify-content space-around

@@ -65,6 +65,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../../common/stylus/mixins.styl"
   #SwiperWrap
+    width 100%
     margin-top 142px
     .swiper-container
       width 750px
