@@ -44,26 +44,21 @@
         return arr3
       }
     },
-    watch: {
-      personalShopArr (newArr) {
-        this.$nextTick(()=>{
-          if(!this.pShopSwiper
-            && this.homeData
-            && newArr.length*newArr[0].length === this.homeData.personalShop.length
-          ){
-            this.pShopSwiper = new Swiper('.personal_shop_swiper_box .swiper-container', {
-              loop: true,
-              pagination: {
-                el: '.personal_shop_swiper_box .swiper-pagination',
-                click: true,
-              },
-            });
-          }
-        })
-      }
-    },
+    
     async mounted () {
       await this.$store.dispatch("getHomeData")
+      this.$nextTick(()=>{
+        if(!this.pShopSwiper){
+          this.pShopSwiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+              el: '.swiper-pagination',
+              click: true,
+            },
+          });
+        }
+      })
+  
     }
   }
 </script>
