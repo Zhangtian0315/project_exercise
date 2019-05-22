@@ -6,6 +6,8 @@ import ShopCart from '../pages/shopCart/ShopCart'
 import Search from '../pages/search/Search'
 import Recommend from '../pages/recognize/recommend/Recommend'
 import Others from '../pages/recognize/others/Others'
+import PhoneLogin from '../pages/personal/phoneLogin/phoneLogin'
+import EmailLogin from '../pages/personal/emailLogin/emailLogin'
 export default [
   {
     path:'/home',
@@ -24,11 +26,20 @@ export default [
   },
   {
     path:'/personal',
-    component:Personal
+    component:Personal,
+    children: [
+      {path:'/personal/phoneLogin', component:PhoneLogin},
+      {path:'/personal/emailLogin', component:EmailLogin},
+    ]
   },
+
   {
     path:'/recognize',
     component:Recognize,
+    meta: {
+      showFooter: true
+    },
+
     children:[{
       path:'/recognize/recommend', component:Recommend,
       meta: {
@@ -39,7 +50,12 @@ export default [
         component:Others,
         meta: {
           showFooter: true
-        }},
+        }
+        },
+      {
+        path: '',
+        redirect: '/recognize/recommend'
+      }
     ],
 
   },

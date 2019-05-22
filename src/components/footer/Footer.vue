@@ -1,26 +1,26 @@
 <template>
 	<div id="footerContainer">
     <ul class="footerList" >
-      <li class="item" @click="$router.replace('/')" :class="{active:$route.path==='/home'}">
+      <router-link class="item" to="/" :class="{active:$route.path==='/home'}">
         <i class="icon" :class="$route.path==='/home'?'icon1-active':'icon1'"></i>
         <span>首页</span>
-      </li>
-      <li class="item" @click="$router.replace('/category')" :class="{active:$route.path==='/category'}">
+      </router-link>
+      <router-link class="item" to="/category" :class="{active:$route.path==='/category'}">
         <i class="icon" :class="$route.path==='/category'?'icon2-active':'icon2'"></i>
         <span>分类</span>
-      </li>
-      <li class="item" @click="$router.replace('/recognize')" :class="{active:$route.path==='/recognize'}">
-        <i class="icon" :class="$route.path==='/recognize'?'icon3-active':'icon3'"></i>
+      </router-link>
+      <router-link class="item" to="/recognize" :class="{active:$route.path==='/recognize'}">
+        <i class="icon" :class="$route.path.includes('/recognize')?'icon3-active':'icon3'"></i>
         <span>识物</span>
-      </li>
-      <li class="item" @click="$router.replace('/shopcart')" :class="{active:$route.path==='/shopcart'}">
+      </router-link>
+      <router-link class="item" to="/shopcart" :class="{active:$route.path==='/shopcart'}">
         <i class="icon" :class="$route.path==='/shopcart'?'icon4-active':'icon4'"></i>
         <span>购物车</span>
-      </li>
-      <li class="item" @click="$router.replace('/personal')" :class="{active:$route.path==='/personal'}">
+      </router-link>
+      <router-link class="item" to="/personal" :class="{active:$route.path==='/personal'}">
         <i class="icon" :class="$route.path==='/personal'?'icon5-active':'icon5'"></i>
         <span>个人</span>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

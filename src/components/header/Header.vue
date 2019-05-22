@@ -6,7 +6,7 @@
         <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-553dba3aff.png" alt="放大镜">
         <span class="text">搜索商品，共22488款好物</span>
       </div>
-      <span class="btn">登录</span>
+      <span class="btn" @click="$router.replace('/personal/emailLogin')">登录</span>
     </div>
     <div>
       <div class="headerBottom">

@@ -1,7 +1,7 @@
 import  {reqTabs,reqRecommendData,
-  reqAutoRecommendData,reqCollection} from '../../api/index'
+  reqAutoRecommendData,reqCollection,reqComments} from '../../api/index'
 import {GET_TABS,GET_RECOMMEND_DATA,
-  GET_MORE_RECOMMEND_DATA,GET_COMMENT_DATA} from '../mutation-types'
+  GET_MORE_RECOMMEND_DATA,GET_COMMENT_DATA,GET_COMMENT_LIST} from '../mutation-types'
 
 const state={
   tabs: [],
@@ -11,6 +11,7 @@ const state={
     result: []
   },
   commentData:{},
+  comments:{}
 }
 
 const actions={
@@ -44,6 +45,14 @@ const actions={
     if(result.code==='200'){
       commit(GET_COMMENT_DATA,{commentData})
     }
+  },
+
+  async getCommentsList({commit},{page,size,type}){
+    const result=await reqComments({page,size,type})
+    const comments=result.data
+    if (result.code==='200'){
+      commit(GET_COMMENT_LIST,{comments})
+    }
   }
 }
 const mutations={
@@ -62,6 +71,9 @@ const mutations={
   },
   [GET_COMMENT_DATA](state,{commentData}){
     state.commentData=commentData
+  },
+  [GET_COMMENT_LIST](state,{comments}){
+    state.comments=comments
   }
 }
 const getters={

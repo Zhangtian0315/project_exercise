@@ -24,7 +24,6 @@
 <script>
   import {mapState} from 'vuex'
   import Swiper from 'swiper'
-  import 'swiper/dist/css/swiper.css'
   export default {
     name: 'SceneLight',
     computed: {
@@ -44,21 +43,23 @@
         return arr3
       }
     },
-    
+    watch: {
+      personalShopArr () {
+        this.$nextTick(()=>{
+          if(!this.pShopSwiper){
+            this.pShopSwiper = new Swiper('.personal_shop_swiper_box .swiper-container', {
+              loop: true,
+              pagination: {
+                el: '.personal_shop_swiper_box .swiper-pagination',
+                click: true,
+              },
+            });
+          }
+        })
+      }
+    },
     async mounted () {
       await this.$store.dispatch("getHomeData")
-      this.$nextTick(()=>{
-        if(!this.pShopSwiper){
-          this.pShopSwiper = new Swiper('.swiper-container', {
-            loop: true,
-            pagination: {
-              el: '.swiper-pagination',
-              click: true,
-            },
-          });
-        }
-      })
-  
     }
   }
 </script>

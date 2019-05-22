@@ -2,10 +2,10 @@
 	<div class="recongiseContainer">
     <HeaderSlot>
       <div slot="find" @click="flag=true" :class="{active:flag}">
-        <span>发现</span>
+        <span @click="$router.replace('/recognize/recommend')">发现</span>
       </div>
       <div slot="choose" @click="flag=false" :class="{active: !flag}">
-        <span>甄选家</span>
+        <span @click="$router.replace('/recognize/others')">甄选家</span>
       </div>
     </HeaderSlot>
     
@@ -14,6 +14,7 @@
         <li v-for="(tab,index) in tabs" @click="switchTab(tab.tabId)"
             :class="{isActived:currentTab===tab.tabId}"
         >{{tab.tabName}}</li>
+        
       </ul>
     </div>
     <div class="recongiseContent">
@@ -33,16 +34,23 @@
         currentTab:9
       }
     },
-   async mounted() {
-     await this.$store.dispatch('getRecongiseTab')
-     
+    async mounted() {
+      this.$store.dispatch('getRecongiseTab')
      this.$nextTick(()=>{
        if(!this.bscroll){
          this.bscroll=new BScroll('.recongiseNav',{
            el:'.recongiseNav',
            click:true,
-           scrollX:true
+           scrollX:true,
          })
+         this.scroll.on('touchend', (pos) => {
+           // 下拉动作
+           if (pos.y > 50) {
+             this.loadData()
+           }
+         })
+       }else{
+         this.bscroll.refresh()
        }
      })
     
@@ -60,18 +68,27 @@
             this.$router.replace("/recognize/recommend");
             break
           }
-          case 10: {    // 收纳秘诀
+          case 14: {    // 好货内部价
             this.$router.replace("/recognize/others");
             break
           }
-          case 12: {    // 20元好物
+          case 12: {    // 回购榜
             break
           }
           case 7: {    // 晒单
             this.$router.replace("/recognize/others");
             break
           }
+          case 18: {    // 开发者日记
+            this.$router.replace("/recognize/others");
+            break
+          }
+        
           case 4: {    // 达人
+            this.$router.replace("/recognize/others");
+            break
+          }
+          case 13: {    // 上新
             this.$router.replace("/recognize/others");
             break
           }
@@ -107,14 +124,14 @@
       left 0
       height 75px
       width 100%
+      background #fff
       .navList
         width 1160px
-        height 100%
+        height 75px
         li
-          z-index 200
           float left
           font-size 28px
-          height 100%
+          height 75px
           line-height 75px
           margin 0 30px
           box-sizing border-box

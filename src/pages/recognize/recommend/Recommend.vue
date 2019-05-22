@@ -37,6 +37,8 @@
           scrollY:true
          })
        })
+     }else{
+       this.scroll.refresh()
      }
     },
     computed:{

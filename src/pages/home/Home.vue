@@ -35,7 +35,6 @@
   
    <TopicList/> <!--专题精选-->
    
-   <CategoryModule/>
   
    <CopyRight/>
  </div>
@@ -51,7 +50,6 @@
   import NewGoods from './newGoods/NewGoods'
   import PopularItem from './popularItem/PopularItem'
   import TopicList from './topicList/TopicList'
-  import CategoryModule from './categoryModule/CategoryModule'
   import CopyRight from './copyRight/CopyRight'
   export default {
     name: "Home",
@@ -64,7 +62,6 @@
       NewGoods,
       PopularItem,
       TopicList,
-      CategoryModule,
       CopyRight
     }
   }

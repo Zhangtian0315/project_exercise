@@ -20,3 +20,6 @@ export const reqAutoRecommendData = (page, size, exceptIds = '6409,6201,6408,641
 
 // 识物-晒单 顶部数据 ---- http://m.you.163.com/topic/v1/look/getCollection.json?id=6
 export const reqCollection = (id) => ajax(`${BASE}/topic/v1/look/getCollection.json`, {id})
+
+//识物-晒单 评论数据 https://m.you.163.com/topic/v1/look/getList.json?page=1&size=20&type=1
+export const reqComments=({page,size,type})=>ajax(`${BASE}/topic/v1/look/getList.json`,{page,size,type})

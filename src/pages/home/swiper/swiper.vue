@@ -44,7 +44,6 @@
             renderCustom(swiper, current, total) {
               var customPaginationHtml = "";
               for (var i = 0; i < total; i++) {
-                //判断哪个分页器此刻应该被激活
                 if (i === (current - 1)) {
                   customPaginationHtml += '<span class="swiper-pagination-customs swiper-pagination-customs-active"></span>';
                 } else {
